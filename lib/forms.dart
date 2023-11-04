@@ -1,6 +1,6 @@
-import 'package:atv_crud_flutter/components/button_custom.dart';
-import 'package:atv_crud_flutter/components/input_field_custom.dart';
-import 'package:atv_crud_flutter/pages/home.dart';
+import 'package:atv/components/button_custom.dart';
+import 'package:atv/components/input_field_custom.dart';
+import 'package:atv/home.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';

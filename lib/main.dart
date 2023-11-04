@@ -12,9 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple, // Cor da barra de aplicativos
+        scaffoldBackgroundColor: Color.fromARGB(95, 193, 74, 214), // Cor de fundo da tela
+      ),
     );
   }
 }
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -62,18 +67,19 @@ Future<void> fetchProducts() async {
          trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  IconButton(
-                    icon: Icon(Icons.edit), // Ícone de edição
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => EditProductPage(product: products[index]),
-                      )).then((value) {
-                        if (value != null && value) {
-                          fetchProducts();
-                        }
-                      });
-                    },
-                  ),
+                        IconButton(
+                          icon: Icon(Icons.edit, color: Colors.deepPurple), // Ícone de edição com cor deepPurple
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => EditProductPage(product: products[index]),
+                            )).then((value) {
+                              if (value != null && value) {
+                                fetchProducts();
+                              }
+                            });
+                          },
+                        )
+                        ,
                   IconButton(
                     icon: Icon(Icons.delete),
                     onPressed: () {
@@ -265,30 +271,45 @@ class _EditProductPageState extends State<EditProductPage> {
           children: [
             TextField(
               controller: nameController,
-              decoration: InputDecoration(labelText: 'Nome do Produto'),
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                labelText: 'Nome do Produto',
+                labelStyle: TextStyle(color: Colors.white),
+              ),
             ),
             TextField(
               controller: priceController,
+              style: TextStyle(color: Colors.white), 
               keyboardType: TextInputType.number,
               inputFormatters: [numberFormatter],
-              decoration: InputDecoration(labelText: 'Preço'),
+              decoration: InputDecoration(
+                labelText: 'Preço',
+                labelStyle: TextStyle(color: Colors.white),
+              ),
             ),
             TextField(
               controller: descriptionController,
-              decoration: InputDecoration(labelText: 'Descrição do Produto'),
+              style: TextStyle(color: Colors.white), 
+              decoration: InputDecoration(
+                labelText: 'Descrição do Produto',
+                labelStyle: TextStyle(color: Colors.white), 
+              ),
             ),
             TextField(
               controller: quantityController,
+              style: TextStyle(color: Colors.white),
               keyboardType: TextInputType.number,
               inputFormatters: [numberFormatter],
-              decoration: InputDecoration(labelText: 'Quantidade'),
+              decoration: InputDecoration(
+                labelText: 'Quantidade',
+                labelStyle: TextStyle(color: Colors.white), 
+              ),
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () async {
                 bool updated = await updateProduct();
-                  Navigator.of(context).pop(true);
-               
+                Navigator.of(context).pop(true);
               },
               child: Text('Atualizar Produto'),
             )

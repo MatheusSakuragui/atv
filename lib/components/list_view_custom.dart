@@ -1,5 +1,5 @@
-import 'package:atv_crud_flutter/pages/forms.dart';
-import 'package:atv_crud_flutter/pages/home.dart';
+import 'package:atv/forms.dart';
+import 'package:atv/home.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 

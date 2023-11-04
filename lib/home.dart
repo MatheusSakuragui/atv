@@ -1,10 +1,9 @@
 import 'dart:convert';
-
-import 'package:atv_crud_flutter/components/button_custom.dart';
-import 'package:atv_crud_flutter/pages/forms.dart';
+import 'package:atv/components/button_custom.dart';
+import 'package:atv/components/list_view_custom.dart';
+import 'package:atv/forms.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:atv_crud_flutter/components/list_view_custom.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
